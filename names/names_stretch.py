@@ -2,19 +2,19 @@ import time
 
 start_time = time.time()
 
-f = open('names_1.txt', 'r')
-names_1 = f.read().split("\n")  # List containing 10000 names
-f.close()
+with open('names_1.txt', 'r') as f:
+    names_1 = f.read().split("\n")  # List containing 10000 names
 
-f = open('names_2.txt', 'r')
-names_2 = f.read().split("\n")  # List containing 10000 names
-f.close()
+with open('names_2.txt', 'r') as f:
+    names_2 = f.read().split("\n")  # List containing 10000 names
 
 names_1.sort()
 names_2.sort()
 
 duplicates = []
+
 i, j = 0, 0
+
 while i < 10000 and j < 10000:
     if names_1[i] == names_2[j]:
         duplicates.append(names_1[i])
